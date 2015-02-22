@@ -19,6 +19,11 @@
       {% endfor %}
       
     </div>
+    {%if doRefresh %}
+    <div class="col-md-9" id="MyTest">
+
+    </div>
+    {% endif %}
   </div>
     {% if showForm %}
   <form action="/submit" method="POST">

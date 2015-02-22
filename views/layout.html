@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -85,11 +85,18 @@
   // Because the socket.io server is being run on the same server as your 
   // Express instance, you can connect() without any arguments.
   var socket = io.connect();
-
   // When 'new_tweet' events are fired, do something with the packaged tweet
   socket.on('new_tweet', function (tweet) { 
     console.log(tweet);
-     window.location.reload();
+    var a = document.createElement("a");
+    var li = document.createElement("LI");
+    var textnode = document.createTextNode(tweet.name);
+    var textnode2 = document.createTextNode("-"+tweet.text);
+    a.setAttribute("href","/users/"+tweet.name);
+    a.appendChild(textnode);
+    li.appendChild(a);
+    li.appendChild(textnode2);
+    document.getElementById("MyTest").appendChild(li);
     // some logic to add the new tweet to the DOM…
   }); 
 </script>
